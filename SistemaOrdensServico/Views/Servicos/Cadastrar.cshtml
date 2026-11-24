@@ -1,0 +1,26 @@
+﻿@model SistemaOrdensServico.Models.Servico
+
+@{
+    ViewData["Title"] = "Cadastrar Serviço";
+}
+
+<h1>Cadastrar Serviço</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Cadastrar" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <partial name="_ServicosForm" model="Model" />
+
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

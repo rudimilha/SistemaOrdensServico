@@ -1,0 +1,23 @@
+﻿@model SistemaOrdensServico.Models.Servico
+
+@{
+    ViewData["Title"] = "Detalhes do Serviço";
+}
+
+<h1>Detalhes do Serviço</h1>
+
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">Nome</dt>
+    <dd class="col-sm-9">@Model.Nome</dd>
+
+    <dt class="col-sm-3">Descrição</dt>
+    <dd class="col-sm-9">@Model.Descricao</dd>
+
+    <dt class="col-sm-3">Valor</dt>
+    <dd class="col-sm-9">@Model.Valor.ToString("C")</dd>
+</dl>
+
+<a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

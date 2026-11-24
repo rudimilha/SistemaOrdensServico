@@ -1,0 +1,155 @@
+﻿@model IEnumerable<SistemaOrdensServico.Models.OrdemServico>
+
+@{
+    ViewData["Title"] = "Ordens de Serviço";
+}
+
+<h1>Ordens de Serviço</h1>
+
+<p>
+    <a asp-action="Cadastrar" class="btn btn-primary">
+        Cadastrar Nova Ordem
+    </a>
+</p>
+
+<form asp-action="Index" method="get" class="card mb-4">
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+
+                <label for="termoBusca" class="form-label">
+                    Pesquisa
+                </label>
+
+                <input type="text"
+                       name="termoBusca"
+                       id="termoBusca"
+                       value="@ViewBag.TermoBusca"
+                       class="form-control"
+                       placeholder="Pesquisar ordem de serviço" />
+
+            </div>
+
+            <div class="col-md-4 mb-3">
+
+                <label for="status" class="form-label">
+                    Status
+                </label>
+
+                <select name="status" id="status" class="form-select">
+
+                    <option value="" selected="@(string.IsNullOrEmpty(ViewBag.Status) ? "selected" : null)">
+                        Todos os status
+                    </option>
+
+                    <option value="Aberta" selected="@(ViewBag.Status == "Aberta" ? "selected" : null)">
+                        Aberta
+                    </option>
+
+                    <option value="Em andamento" selected="@(ViewBag.Status == "Em andamento" ? "selected" : null)">
+                        Em andamento
+                    </option>
+
+                    <option value="Concluída" selected="@(ViewBag.Status == "Concluída" ? "selected" : null)">
+                        Concluída
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="col-md-2 mb-3 d-flex align-items-end">
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Pesquisar
+                </button>
+
+            </div>
+
+        </div>
+
+        <a asp-action="Index" class="btn btn-secondary btn-sm">
+            Limpar Filtros
+        </a>
+
+    </div>
+
+</form>
+
+<div class="table-responsive">
+
+    <table class="table table-striped table-bordered">
+
+        <thead>
+
+            <tr>
+                <th>Número</th>
+                <th>Cliente</th>
+                <th>Equipamento</th>
+                <th>Técnico</th>
+                <th>Serviço</th>
+                <th>Data de Abertura</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var ordem in Model)
+            {
+                <tr>
+
+                    <td>@ordem.Id</td>
+
+                    <td>@ordem.Cliente?.Nome</td>
+
+                    <td>@ordem.Equipamento?.Nome</td>
+
+                    <td>@ordem.Tecnico?.Nome</td>
+
+                    <td>@ordem.Servico?.Nome</td>
+
+                    <td>
+                        @ordem.DataAbertura.ToString("dd/MM/yyyy")
+                    </td>
+
+                    <td>@ordem.Status</td>
+
+                    <td>
+
+                        <a asp-action="Detalhes"
+                           asp-route-id="@ordem.Id"
+                           class="btn btn-info btn-sm">
+                            Detalhes
+                        </a>
+
+                        @if (ordem.Status != "Concluída")
+                        {
+                            <a asp-action="Editar"
+                               asp-route-id="@ordem.Id"
+                               class="btn btn-warning btn-sm">
+                                Editar
+                            </a>
+
+                            <a asp-action="Excluir"
+                               asp-route-id="@ordem.Id"
+                               class="btn btn-danger btn-sm">
+                                Excluir
+                            </a>
+                        }
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

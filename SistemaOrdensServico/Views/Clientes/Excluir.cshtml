@@ -1,0 +1,48 @@
+﻿@model SistemaOrdensServico.Models.Cliente
+
+@{
+    ViewData["Title"] = "Excluir Cliente";
+}
+
+<h1>Excluir Cliente</h1>
+
+@if (TempData["ErroExclusaoCliente"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>Não foi possível excluir!</strong>
+        @TempData["ErroExclusaoCliente"]
+    </div>
+}
+
+<h4>Tem certeza de que deseja excluir este cliente?</h4>
+
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Nome</dt>
+        <dd class="col-sm-9">@Model.Nome</dd>
+
+        <dt class="col-sm-3">Telefone</dt>
+        <dd class="col-sm-9">@Model.Telefone</dd>
+
+        <dt class="col-sm-3">E-mail</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+
+        <dt class="col-sm-3">Endereço</dt>
+        <dd class="col-sm-9">@Model.Endereco</dd>
+    </dl>
+</div>
+
+<form asp-action="Excluir" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">
+        Confirmar Exclusão
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancelar
+    </a>
+</form>

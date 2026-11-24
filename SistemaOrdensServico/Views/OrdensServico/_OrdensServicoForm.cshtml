@@ -1,0 +1,67 @@
+﻿@model SistemaOrdensServico.Models.OrdemServico
+
+<div class="mb-3">
+    <label asp-for="Descricao" class="form-label">Descrição</label>
+    <textarea asp-for="Descricao" class="form-control"></textarea>
+    <span asp-validation-for="Descricao" class="text-danger"></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="Diagnostico" class="form-label">Diagnóstico</label>
+    <textarea asp-for="Diagnostico" class="form-control"></textarea>
+    <span asp-validation-for="Diagnostico" class="text-danger"></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="Solucao" class="form-label">Solução</label>
+    <textarea asp-for="Solucao" class="form-control"></textarea>
+    <span asp-validation-for="Solucao" class="text-danger"></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="ClienteId" class="form-label">Cliente</label>
+
+    <select asp-for="ClienteId"
+            asp-items="ViewBag.ClienteId"
+            class="form-select">
+        <option value="">Selecione um cliente</option>
+    </select>
+
+    <span asp-validation-for="ClienteId" class="text-danger"></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="EquipamentoId" class="form-label">Equipamento</label>
+
+    <select asp-for="EquipamentoId"
+            asp-items="ViewBag.EquipamentoId"
+            class="form-select">
+        <option value="">Selecione um equipamento</option>
+    </select>
+
+    <span asp-validation-for="EquipamentoId" class="text-danger"></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="TecnicoId" class="form-label">Técnico</label>
+
+    <select asp-for="TecnicoId"
+            asp-items="ViewBag.TecnicoId"
+            class="form-select">
+        <option value="">Selecione um técnico</option>
+    </select>
+
+    <span asp-validation-for="TecnicoId" class="text-danger"></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="ServicoId" class="form-label">Serviço</label>
+
+    <select asp-for="ServicoId"
+            asp-items="ViewBag.ServicoId"
+            class="form-select">
+        <option value="">Selecione um serviço</option>
+    </select>
+
+    <span asp-validation-for="ServicoId" class="text-danger"></span>
+</div>

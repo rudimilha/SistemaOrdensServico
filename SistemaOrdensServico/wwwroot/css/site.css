@@ -1,0 +1,352 @@
+/* =========================================
+   SISTEMA DE ORDENS DE SERVIÇO
+   Identidade visual principal
+========================================= */
+
+:root {
+    --cor-principal: #1f4e79;
+    --cor-principal-escura: #163a5b;
+    --cor-secundaria: #3b82b8;
+    --cor-fundo: #f4f7fb;
+    --cor-texto: #263445;
+    --cor-borda: #dce4ec;
+    --cor-branca: #ffffff;
+    --cor-sucesso: #198754;
+    --cor-alerta: #ffc107;
+    --cor-perigo: #dc3545;
+    --cor-info: #0dcaf0;
+}
+
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+html {
+    font-size: 16px;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--cor-principal);
+    font-weight: 600;
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================
+   MENU DE NAVEGAÇÃO
+========================================= */
+
+.navbar {
+    background-color: var(--cor-principal) !important;
+    padding: 12px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.navbar-brand {
+    color: var(--cor-branca) !important;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+    .navbar-brand:hover {
+        color: #dceeff !important;
+    }
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    padding: 10px 12px !important;
+    transition: 0.3s;
+}
+
+    .navbar .nav-link:hover {
+        color: var(--cor-branca) !important;
+        background-color: rgba(255, 255, 255, 0.12);
+        border-radius: 6px;
+    }
+
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+========================================= */
+
+.container {
+    max-width: 1200px;
+}
+
+main.container {
+    padding-top: 35px;
+    padding-bottom: 40px;
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+    background-color: var(--cor-branca);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    border-radius: 12px 12px 0 0 !important;
+    padding: 15px 20px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+.btn {
+    border-radius: 6px;
+    padding: 8px 15px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--cor-principal);
+    border-color: var(--cor-principal);
+}
+
+    .btn-primary:hover {
+        background-color: var(--cor-principal-escura);
+        border-color: var(--cor-principal-escura);
+    }
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-info {
+    color: #ffffff;
+    background-color: #1686b5;
+    border-color: #1686b5;
+}
+
+    .btn-info:hover {
+        color: #ffffff;
+        background-color: #116b91;
+        border-color: #116b91;
+    }
+
+.btn-warning {
+    color: #212529;
+}
+
+.btn-danger:hover {
+    background-color: #bb2d3b;
+}
+
+.btn-success {
+    background-color: var(--cor-sucesso);
+    border-color: var(--cor-sucesso);
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+}
+
+/* =========================================
+   TABELAS
+========================================= */
+
+.table {
+    background-color: var(--cor-branca);
+    border-color: var(--cor-borda);
+    vertical-align: middle;
+}
+
+    .table thead th {
+        background-color: var(--cor-principal);
+        color: var(--cor-branca);
+        border-color: var(--cor-principal);
+        padding: 12px;
+        white-space: nowrap;
+    }
+
+    .table tbody td {
+        padding: 12px;
+    }
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8fafc;
+}
+
+.table tbody tr:hover {
+    background-color: #eaf2f8;
+}
+
+.table td:last-child {
+    min-width: 180px;
+}
+
+/* =========================================
+   FORMULÁRIOS
+========================================= */
+
+.form-label {
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
+.form-control,
+.form-select {
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    padding: 10px;
+    background-color: var(--cor-branca);
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: var(--cor-secundaria);
+        box-shadow: 0 0 0 0.2rem rgba(59, 130, 184, 0.20);
+    }
+
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-check-input:checked {
+    background-color: var(--cor-principal);
+    border-color: var(--cor-principal);
+}
+
+/* =========================================
+   VALIDAÇÃO
+========================================= */
+
+.text-danger {
+    font-size: 0.9rem;
+}
+
+.input-validation-error {
+    border-color: var(--cor-perigo);
+}
+
+.validation-summary-errors {
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   DETALHES
+========================================= */
+
+dl.row {
+    background-color: var(--cor-branca);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--cor-borda);
+}
+
+dt {
+    color: var(--cor-principal);
+    font-weight: 600;
+}
+
+dd {
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   ALERTAS
+========================================= */
+
+.alert {
+    border-radius: 8px;
+}
+
+/* =========================================
+   RODAPÉ
+========================================= */
+
+.footer {
+    background-color: var(--cor-branca);
+    border-top: 1px solid var(--cor-borda);
+    color: #6c757d;
+    padding: 20px 0;
+    margin-top: auto;
+    text-align: center;
+}
+
+    .footer a {
+        color: var(--cor-principal);
+    }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    main.container {
+        padding-top: 20px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table td:last-child {
+        min-width: 180px;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        margin-bottom: 5px;
+    }
+}

@@ -1,0 +1,29 @@
+﻿@model SistemaOrdensServico.Models.Servico
+
+@{
+    ViewData["Title"] = "Excluir Serviço";
+}
+
+<h1>Excluir Serviço</h1>
+
+<h4>Tem certeza de que deseja excluir este serviço?</h4>
+
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">Nome</dt>
+    <dd class="col-sm-9">@Model.Nome</dd>
+
+    <dt class="col-sm-3">Descrição</dt>
+    <dd class="col-sm-9">@Model.Descricao</dd>
+
+    <dt class="col-sm-3">Valor</dt>
+    <dd class="col-sm-9">@Model.Valor.ToString("C")</dd>
+</dl>
+
+<form asp-action="Excluir" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
